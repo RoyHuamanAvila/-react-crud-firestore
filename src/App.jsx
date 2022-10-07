@@ -1,8 +1,13 @@
+import LinkForm from './components/LinkForm';
 import './App.css';
 
 function App() {
   return (
-    <h1>Hello World</h1>
+    <div className='container p-4'>
+      <div className="row">
+        <LinkForm />
+      </div>
+    </div>
   );
 }
 
