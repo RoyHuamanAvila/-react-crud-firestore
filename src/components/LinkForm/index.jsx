@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const LinkForm = () => {
+const LinkForm = ({addOrEdit}) => {
     const initialState= {
         url: '',
         name: '',
@@ -17,6 +17,8 @@ const LinkForm = () => {
     const handleSubmit = e => {
         e.preventDefault();
         console.log(values);
+        addOrEdit(values);
+        setValues({...initialState});
     }
 
     return(
@@ -31,6 +33,7 @@ const LinkForm = () => {
                     placeholder="https://someurl.com"
                     name="url"
                     onChange={handleInputChange}
+                    value={values.url}
                     />
             </div>
 
@@ -44,6 +47,7 @@ const LinkForm = () => {
                     placeholder="Website name" 
                     name="name"
                     onChange={handleInputChange}
+                    value={values.name}
                     />
             </div>
 
@@ -54,6 +58,7 @@ const LinkForm = () => {
                     className="form-control" 
                     placeholder="Write a description"
                     onChange={handleInputChange}
+                    value={values.description}
                     >
 
                 </textarea>
